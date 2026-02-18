@@ -57,6 +57,11 @@ export default {
           filename: 'assets/fonts/[name][ext]',
         },
       },
+      {
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
+      },
     ],
   },
   plugins: [
