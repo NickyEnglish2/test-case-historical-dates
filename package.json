@@ -1,0 +1,57 @@
+{
+  "name": "test-case-historical-dates",
+  "version": "1.0.0",
+  "description": "Тестовое задание на отображение анимации и хранение состояния.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "lint": "eslint . && stylelint 'src/**/*.{ts,tsx}'",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickyEnglish2/test-case-historical-dates.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/NickyEnglish2/test-case-historical-dates/issues"
+  },
+  "homepage": "https://github.com/NickyEnglish2/test-case-historical-dates#readme",
+  "dependencies": {
+    "gsap": "^3.14.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "styled-components": "^6.3.9",
+    "swiper": "^12.1.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.4.1",
+    "@commitlint/config-conventional": "^20.4.1",
+    "@eslint/js": "^10.0.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/styled-components": "^5.1.36",
+    "babel-plugin-styled-components": "^2.1.4",
+    "css-loader": "^7.1.4",
+    "eslint": "^10.0.0",
+    "globals": "^17.3.0",
+    "html-webpack-plugin": "^5.6.6",
+    "husky": "^9.1.7",
+    "postcss-styled-syntax": "^0.7.1",
+    "sass": "^1.97.3",
+    "sass-loader": "^16.0.7",
+    "style-loader": "^4.0.0",
+    "stylelint": "^17.3.0",
+    "stylelint-config-standard": "^40.0.0",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.0",
+    "webpack": "^5.105.2",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.3"
+  }
+}
