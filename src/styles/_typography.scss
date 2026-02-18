@@ -1,0 +1,69 @@
+@use 'variables';
+
+@mixin year-blue {
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 1.6;
+  color: variables.$color-year-blue;
+
+  @media (min-width: variables.$desktop) {
+    font-size: 200px;
+  }
+}
+
+@mixin year-pink {
+  @include year-blue;
+
+  color: variables.$color-year-pink;
+}
+
+@mixin title {
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  color: variables.$color-dark-blue;
+
+  @media (min-width: variables.$desktop) {
+    font-size: 56px;
+  }
+}
+
+@mixin paragraph {
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.45;
+  color: variables.$color-dark-blue;
+
+  @media (min-width: variables.$desktop) {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+@mixin year-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: variables.$color-blue;
+
+  @media (min-width: variables.$desktop) {
+    font-size: 25px;
+  }
+}
+
+@mixin counter {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 14px;
+  color: variables.$color-dark-blue;
+}
+
+@mixin type {
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: variables.$color-dark-blue;
+}

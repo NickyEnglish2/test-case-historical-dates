@@ -1,0 +1,17 @@
+@use "./styles/variables";
+@use "./styles/typography";
+
+.container {
+  padding: 40px;
+  min-height: 100vh;
+
+  .title {
+    @include typography.title;
+
+    margin-bottom: 30px;
+  }
+
+  .date {
+    @include typography.year-blue;
+  }
+}

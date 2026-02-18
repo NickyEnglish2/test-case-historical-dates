@@ -1,20 +1,21 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const config = {
+export default {
   mode: 'development',
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'js/[name].[contenthash].js',
     clean: true,
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss'],
   },
   module: {
     rules: [
@@ -24,15 +25,43 @@ const config = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(scss|sass|css)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.module\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]--[hash:base64:5]',
+                namedExport: false,
+                exportLocalsConvention: 'camelCase',
+              },
+            },
+          },
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.scss$/,
+        exclude: /\.module\.scss$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.(woff2|woff|ttf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name][ext]',
+        },
       },
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-    }),
+    new HtmlWebpackPlugin({ template: './public/index.html' }),
+    new MiniCssExtractPlugin({ filename: 'css/[name].[contenthash].css' }),
   ],
   devServer: {
     port: 3000,
@@ -40,5 +69,3 @@ const config = {
     historyApiFallback: true,
   },
 };
-
-export default config;

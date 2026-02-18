@@ -1,29 +1,32 @@
-import styled from 'styled-components';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 import 'swiper/css';
+import s from './App.module.scss';
 
-const Container = styled.div`
-  padding: 40px;
-  background: #f0f0f0;
-  h1 { color: #333; }
-`;
-
-export const App = () => {
-  const titleRef = useRef(null);
+export const App: React.FC = () => {
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
-    gsap.to(titleRef.current, { x: 100, duration: 1 });
+    if (titleRef.current) {
+      gsap.fromTo(titleRef.current, 
+        { opacity: 0, y: -20 }, 
+        { opacity: 1, y: 0, duration: 1 }
+      );
+    }
   }, []);
 
   return (
-    <Container>
-      <h1 ref={titleRef}>Hello World</h1>
-      <Swiper>
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
+    <div className={s.container}>
+      <h1 ref={titleRef} className={s.title}>Тестовое задание</h1>
+      
+      <div className={s.date}>2024</div>
+
+      <Swiper spaceBetween={30} slidesPerView={1}>
+        <SwiperSlide>Слайд 1</SwiperSlide>
+        <SwiperSlide>Слайд 2</SwiperSlide>
       </Swiper>
-    </Container>
+    </div>
   );
 };

@@ -1,9 +1,13 @@
 {
-  "extends": ["stylelint-config-standard"],
-  "customSyntax": "postcss-styled-syntax",
+  "extends": [
+    "stylelint-config-standard-scss"
+  ],
   "rules": {
-    "no-empty-source": null,
-    "property-no-vendor-prefix": null,
-    "value-no-vendor-prefix": null
+    "no-invalid-position-declaration": null,
+    "selector-class-pattern": null,
+    "no-descending-specificity": null,
+    "keyframes-name-pattern": null,
+    "scss/at-mixin-pattern": null,
+    "scss/at-rule-no-unknown": true
   }
 }
