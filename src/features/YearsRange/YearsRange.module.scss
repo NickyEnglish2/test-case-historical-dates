@@ -1,0 +1,35 @@
+@use "@/styles/variables";
+@use "@/styles/typography";
+
+.container {
+  position: absolute;
+  top: 480px;
+  left: 50%;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: variables.$desktop;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  gap: 100px;
+
+  @media (width < variables.$desktop) {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    justify-content: flex-start;
+    padding-left: 20px;
+    margin-top: 56px;
+    gap: 20px;
+  }
+}
+
+.firstYear {
+  @include typography.year-blue;
+}
+
+.secondYear {
+  @include typography.year-pink;
+}
