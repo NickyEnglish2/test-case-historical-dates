@@ -7,6 +7,7 @@ class HistoricalDatesStore {
   error: string | null = null;
   isInitialized: boolean = false;
   activeId: number | null = null;
+  isAnimating = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -69,6 +70,10 @@ class HistoricalDatesStore {
     if (currentIndex > 0) {
       this.activeId = this.data[currentIndex - 1].id;
     }
+  };
+
+  setAnimating = (value: boolean) => {
+    this.isAnimating = value;
   };
 }
 

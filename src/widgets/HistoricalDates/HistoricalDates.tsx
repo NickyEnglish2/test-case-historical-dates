@@ -4,6 +4,7 @@ import { historicalDatesStore } from '@/entities/HistoricalDates/model/store';
 import { ThemeSelector } from '@/features/ThemeSelector/ThemeSelector';
 import { YearsRange } from '@/features/YearsRange/YearsRange';
 import { EventsSlider } from '@/features/EventsSlider/EventsSlider';
+import { ThemeControls } from '@/features/ThemeControls/ThemeControls';
 import s from './HistoricalDates.module.scss';
 
 export const HistoricalDates: React.FC = observer(() => {
@@ -22,6 +23,8 @@ export const HistoricalDates: React.FC = observer(() => {
             Исторические <br /> даты
           </h1>
         </div>
+
+        <ThemeControls />
 
         <ThemeSelector />
 

@@ -1,0 +1,99 @@
+@use "@/styles/variables";
+@use "@/styles/typography";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+
+  @media (width >= variables.$desktop) {
+    margin-left: 80px;
+    margin-top: 393px;
+    gap: 20px;
+    max-width: 120px;
+  }
+
+  @media (width < variables.$desktop) {
+    position: absolute;
+    bottom: 13px;
+    left: 20px;
+    right: 20px;
+    display: block; 
+  }
+}
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+
+  @media (width >= variables.$desktop) {
+    gap: 20px;
+  }
+
+  @media (width < variables.$desktop) {
+    gap: 11px; 
+    align-items: flex-start;
+  }
+}
+
+.counter {
+  @include typography.counter;
+}
+
+.buttons {
+  display: flex;
+
+  @media (width >= variables.$desktop) {
+    gap: 20px;
+  }
+
+  @media (width < variables.$desktop) {
+    gap: 9px;
+  }
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+
+  @media (width >= variables.$desktop) {
+    display: none;
+  }
+
+  @media (width < variables.$desktop) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  cursor: pointer;
+  background-color: variables.$color-dark-blue;
+  border: none;
+  border-radius: 50%;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+
+  &.active {
+    opacity: 1;
+  }
+
+  &.locked {
+    pointer-events: none;
+  }
+}
+
+.navBtn {
+  transition: opacity 0.3s ease;
+  
+  &.locked {
+    pointer-events: none;
+    cursor: default;
+  }
+}

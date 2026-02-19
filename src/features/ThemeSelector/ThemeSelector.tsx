@@ -20,33 +20,17 @@ export const ThemeSelector: React.FC = observer(() => {
     if (activeIndex === -1) return;
 
     const rotationAngle = -(activeIndex / totalPoints) * 360;
-
-    const tl = gsap.timeline();
-
-    tl.to(titleRefs.current, {
-      opacity: 0,
-      duration: 0.3,
-      ease: 'power2.out'
+    const tl = gsap.timeline({
+      onStart: () => historicalDatesStore.setAnimating(true),
+      onComplete: () => historicalDatesStore.setAnimating(false),
     });
 
-    tl.to(circleRef.current, {
-      rotation: rotationAngle,
-      duration: 1,
-      ease: 'power3.inOut',
-    }, "-=0.1");
+    tl.to(titleRefs.current, { opacity: 0, duration: 0.3 });
 
-    tl.to(pointsRef.current, {
-      rotation: -rotationAngle,
-      duration: 1,
-      ease: 'power3.inOut',
-    }, "<");
+    tl.to(circleRef.current, { rotation: rotationAngle, duration: 1, ease: 'power3.inOut' }, "-=0.2");
+    tl.to(pointsRef.current, { rotation: -rotationAngle, duration: 1, ease: 'power3.inOut' }, "<");
 
-    tl.to(titleRefs.current[activeIndex], {
-      opacity: 1,
-      duration: 0.4,
-      ease: 'power2.in'
-    });
-
+    tl.to(titleRefs.current[activeIndex], { opacity: 1, duration: 0.4 });
   }, [activeId, data, totalPoints]);
 
   const getPointCoords = (index: number) => {

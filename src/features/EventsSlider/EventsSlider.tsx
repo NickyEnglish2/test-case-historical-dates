@@ -11,8 +11,7 @@ import { SliderCard } from './ui/SliderCard';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import ArrowLeft from '@/assets/icons/icon-arrow-left.svg';
-import ArrowRight from '@/assets/icons/icon-arrow-right.svg';
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import s from './EventsSlider.module.scss';
 
 export const EventsSlider: React.FC = observer(() => {
@@ -76,7 +75,7 @@ export const EventsSlider: React.FC = observer(() => {
           variant="secondary"
           size="s"
           iconOnly
-          Icon={ArrowLeft}
+          Icon={SlArrowLeft}
           className={`${s.navBtn} ${s.prevBtn}`}
           id="prev-event"
         />
@@ -84,7 +83,7 @@ export const EventsSlider: React.FC = observer(() => {
           variant="secondary"
           size="s"
           iconOnly
-          Icon={ArrowRight}
+          Icon={SlArrowRight}
           className={`${s.navBtn} ${s.nextBtn}`}
           id="next-event"
         />
