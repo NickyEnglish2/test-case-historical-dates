@@ -1,0 +1,86 @@
+@use "@/styles/variables";
+@use "@/styles/typography";
+
+.container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  padding: 0 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+
+  @media (width >= variables.$desktop) {
+    margin-top: 0;
+    padding: 0 80px;
+    margin-bottom: 9.6vh;
+  }
+}
+
+.swiperWrapper {
+  width: 100%;
+}
+
+.slide {
+  width: auto !important;
+  height: auto;
+}
+
+.card {
+  width: 100%;
+  max-width: 320px;
+
+  @media (width < variables.$desktop) {
+    max-width: 166px;
+  }
+}
+
+.cardYear {
+  @include typography.year-title;
+
+  margin-bottom: 15px;
+}
+
+.cardDescription {
+  @include typography.paragraph;
+}
+
+.navigationWrapper {
+  display: none;
+
+  @media (width >= variables.$desktop) {
+    display: block;
+  }
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  transform: translateY(-50%);
+
+  &:global(.swiper-button-disabled) {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.prevBtn {
+  left: 20px;
+}
+
+.nextBtn {
+  right: 20px;
+}
+
+:global(.swiper-slide) {
+  @media (width < variables.$desktop) {
+    transition: opacity 0.3s ease;
+    opacity: 0.4;
+  }
+}
+
+:global(.swiper-slide-active) {
+  @media (width < variables.$desktop) {
+    opacity: 1 !important;
+  }
+}

@@ -3,6 +3,12 @@
     "stylelint-config-standard-scss"
   ],
   "rules": {
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
     "no-invalid-position-declaration": null,
     "selector-class-pattern": null,
     "no-descending-specificity": null,

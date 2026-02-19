@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { historicalDatesStore } from '@/entities/HistoricalDates/model/store';
 import { ThemeSelector } from '@/features/ThemeSelector/ThemeSelector';
 import { YearsRange } from '@/features/YearsRange/YearsRange';
+import { EventsSlider } from '@/features/EventsSlider/EventsSlider';
 import s from './HistoricalDates.module.scss';
 
 export const HistoricalDates: React.FC = observer(() => {
@@ -25,6 +26,10 @@ export const HistoricalDates: React.FC = observer(() => {
         <ThemeSelector />
 
         <YearsRange />
+
+        <div className={s.footer}>
+          <EventsSlider />
+        </div>
       </section>
     </div>
   );
