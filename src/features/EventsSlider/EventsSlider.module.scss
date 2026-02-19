@@ -7,12 +7,10 @@
   width: 100%;
   padding: 0 20px;
   margin-top: 20px;
-  margin-bottom: 40px;
 
   @media (width >= variables.$desktop) {
-    margin-top: 0;
+    margin-top: 56px;
     padding: 0 80px;
-    margin-bottom: 9.6vh;
   }
 }
 
