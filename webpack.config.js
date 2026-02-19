@@ -93,5 +93,12 @@ export default {
     port: 3000,
     hot: true,
     historyApiFallback: true,
+    proxy: [
+      {
+        context: ['/api'],
+        target: 'http://localhost:3001',
+        pathRewrite: { '^/api': '' },
+      },
+    ],
   },
 };
