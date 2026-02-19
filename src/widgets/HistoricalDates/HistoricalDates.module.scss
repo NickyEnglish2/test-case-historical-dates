@@ -1,0 +1,78 @@
+@use "../../styles/variables";
+@use "../../styles/typography";
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: variables.$desktop;
+  margin: 0 auto;
+  min-height: 100vh;
+  overflow: hidden;
+  border-left: 1px solid rgba(variables.$color-dark-blue, 0.1);
+  border-right: 1px solid rgba(variables.$color-dark-blue, 0.1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background-color: rgba(variables.$color-dark-blue, 0.1);
+    z-index: 0;
+
+    @media (width < variables.$desktop) {
+      display: none;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 480px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(variables.$color-dark-blue, 0.1);
+    z-index: 0;
+
+    @media (width < variables.$desktop) {
+      display: none;
+    }
+  }
+}
+
+.titleWrapper {
+  position: relative;
+  padding-top: 59px;
+  padding-left: 20px;
+  z-index: 1;
+
+  @media (width >= variables.$desktop) {
+    padding-top: 170px;
+    padding-left: 80px;
+  }
+}
+
+.title {
+  @include typography.title;
+
+  position: relative;
+}
+
+.gradientLine {
+  display: none;
+
+  @media (width >= variables.$desktop) {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 177px;
+    width: 5px;
+    height: 120px;
+    background: linear-gradient(
+      variables.$color-year-blue,
+      variables.$color-year-pink
+    );
+  }
+}
