@@ -30,6 +30,8 @@ export const HistoricalDates: React.FC = observer(() => {
 
         <YearsRange />
 
+        <div className={s.horizontalLine} />
+
         <div className={s.footer}>
           <EventsSlider />
         </div>
