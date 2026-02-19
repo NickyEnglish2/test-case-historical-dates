@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { observer } from 'mobx-react-lite';
+import { historicalDatesStore } from '@/entities/HistoricalDates/model/store';
+import { ThemeSelector } from '@/features/ThemeSelector/ThemeSelector';
 import s from './HistoricalDates.module.scss';
 
-export const HistoricalDates: React.FC = () => {
+export const HistoricalDates: React.FC = observer(() => {
+  const { fetchHistoricalDates } = historicalDatesStore;
+
+  useEffect(() => {
+    fetchHistoricalDates();
+  }, [fetchHistoricalDates]);
+
   return (
     <section className={s.wrapper}>
       <div className={s.gradientLine} />
@@ -11,8 +20,7 @@ export const HistoricalDates: React.FC = () => {
           Исторические <br /> даты
         </h1>
       </div>
-
-      {/* Здесь в будущем будет контент: слайдер и круговая навигация */}
+      <ThemeSelector />
     </section>
   );
-};
+});
