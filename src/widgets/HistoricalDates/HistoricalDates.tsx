@@ -13,17 +13,19 @@ export const HistoricalDates: React.FC = observer(() => {
   }, [fetchHistoricalDates]);
 
   return (
-    <section className={s.wrapper}>
-      <div className={s.gradientLine} />      
-      <div className={s.titleWrapper}>
-        <h1 className={s.title}>
-          Исторические <br /> даты
-        </h1>
-      </div>
+    <div className={s.pageContainer}>
+      <section className={s.wrapper}>
+        <div className={s.gradientLine} />      
+        <div className={s.titleWrapper}>
+          <h1 className={s.title}>
+            Исторические <br /> даты
+          </h1>
+        </div>
 
-      <ThemeSelector />
+        <ThemeSelector />
 
-      <YearsRange />
-    </section>
+        <YearsRange />
+      </section>
+    </div>
   );
 });
