@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import { gsap } from 'gsap';
-import { historicalDatesStore } from '@/entities/HistoricalDates/model/store';
+import { useHistoricalDatesStore } from '@/entities/HistoricalDates/lib/StoreContext';
 import s from './YearsRange.module.scss';
 
 export const YearsRange: React.FC = observer(() => {
-  const { activeBlock } = historicalDatesStore;
+  const store = useHistoricalDatesStore();
+  const { activeBlock } = store;
   
   const firstRef = useRef<HTMLSpanElement>(null);
   const secondRef = useRef<HTMLSpanElement>(null);

@@ -1,11 +1,13 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import { historicalDatesStore } from '@/entities/HistoricalDates/model/store';
+import { useHistoricalDatesStore } from '@/entities/HistoricalDates/lib/StoreContext';
 import { Button } from '@/components/Button';
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import s from './ThemeControls.module.scss';
 
 export const ThemeControls: React.FC = observer(() => {
+	const store = useHistoricalDatesStore();
+
   const { 
     data, 
     activeId, 
@@ -13,8 +15,8 @@ export const ThemeControls: React.FC = observer(() => {
     setActiveId, 
     nextPeriod, 
     prevPeriod,
-    isAnimating // Достаем состояние из стора
-  } = historicalDatesStore;
+    isAnimating
+  } = store;
 
   if (data.length === 0) return null;
 

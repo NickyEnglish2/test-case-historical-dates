@@ -1,7 +1,7 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import { HistoricalBlock } from '@/types/historical-dates';
 
-class HistoricalDatesStore {
+export class HistoricalDatesStore {
   data: HistoricalBlock[] = [];
   isLoading: boolean = false;
   error: string | null = null;
@@ -76,5 +76,3 @@ class HistoricalDatesStore {
     this.isAnimating = value;
   };
 }
-
-export const historicalDatesStore = new HistoricalDatesStore();

@@ -4,7 +4,7 @@ import { Navigation } from 'swiper/modules';
 import { observer } from 'mobx-react-lite';
 import { gsap } from 'gsap';
 
-import { historicalDatesStore } from '@/entities/HistoricalDates/model/store';
+import { useHistoricalDatesStore } from '@/entities/HistoricalDates/lib/StoreContext';
 import { Button } from '@/components/Button';
 import { SliderCard } from './ui/SliderCard';
 
@@ -15,7 +15,8 @@ import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import s from './EventsSlider.module.scss';
 
 export const EventsSlider: React.FC = observer(() => {
-  const { activeBlock } = historicalDatesStore;
+  const store = useHistoricalDatesStore();
+  const { activeBlock } = store;
   const containerRef = useRef<HTMLDivElement>(null);
   const [displayedData, setDisplayedData] = useState(activeBlock);
   const isFirstRender = useRef(true);

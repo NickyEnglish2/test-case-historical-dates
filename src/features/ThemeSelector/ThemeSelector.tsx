@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 import { gsap } from 'gsap';
-import { historicalDatesStore } from '@/entities/HistoricalDates/model/store';
+import { useHistoricalDatesStore } from '@/entities/HistoricalDates/lib/StoreContext';
 import s from './ThemeSelector.module.scss';
 
 export const ThemeSelector: React.FC = observer(() => {
-  const { data, activeId, setActiveId, isLoading } = historicalDatesStore;
+  const store = useHistoricalDatesStore();
+  const { data, activeId, setActiveId, isLoading } = store;
   const circleRef = useRef<HTMLDivElement>(null);
   const pointsRef = useRef<(HTMLDivElement | null)[]>([]);
   const titleRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -21,8 +22,8 @@ export const ThemeSelector: React.FC = observer(() => {
 
     const rotationAngle = -(activeIndex / totalPoints) * 360;
     const tl = gsap.timeline({
-      onStart: () => historicalDatesStore.setAnimating(true),
-      onComplete: () => historicalDatesStore.setAnimating(false),
+      onStart: () => store.setAnimating(true),
+      onComplete: () => store.setAnimating(false),
     });
 
     tl.to(titleRefs.current, { opacity: 0, duration: 0.3 });
